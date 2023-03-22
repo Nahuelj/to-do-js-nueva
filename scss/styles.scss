@@ -140,3 +140,8 @@ body{
     align-items: center;
     gap: 1rem;
 }
+
+
+.check{
+    @extend .btn-check;
+}

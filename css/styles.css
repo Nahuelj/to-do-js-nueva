@@ -13,7 +13,7 @@ body {
   font-family: sans-serif;
 }
 
-.btn-add, .editando .btn-confirmar, .editando .btn-cancelar, .tarea .btn-check, .tarea .btn-editar, .tarea .btn-eliminar, .btn-eliminar-todas {
+.btn-add, .editando .btn-confirmar, .editando .btn-cancelar, .tarea .btn-check, .tarea .check, .tarea .btn-editar, .tarea .btn-eliminar, .btn-eliminar-todas {
   width: 30px;
   height: 30px;
   display: flex;
@@ -23,14 +23,14 @@ body {
   border: none;
   cursor: pointer;
 }
-.btn-add:hover, .editando .btn-confirmar:hover, .editando .btn-cancelar:hover, .tarea .btn-check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover, .btn-eliminar-todas:hover {
+.btn-add:hover, .editando .btn-confirmar:hover, .editando .btn-cancelar:hover, .tarea .btn-check:hover, .tarea .check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover, .btn-eliminar-todas:hover {
   transform: scale(1.2);
   transition: scale 0.2s;
 }
-.btn-add:active, .editando .btn-confirmar:active, .editando .btn-cancelar:active, .tarea .btn-check:active, .tarea .btn-editar:active, .tarea .btn-eliminar:active, .btn-eliminar-todas:active {
+.btn-add:active, .editando .btn-confirmar:active, .editando .btn-cancelar:active, .tarea .btn-check:active, .tarea .check:active, .tarea .btn-editar:active, .tarea .btn-eliminar:active, .btn-eliminar-todas:active {
   opacity: 0.4;
 }
-.btn-add .img-add, .editando .btn-confirmar .img-add, .editando .btn-cancelar .img-add, .tarea .btn-check .img-add, .tarea .btn-editar .img-add, .tarea .btn-eliminar .img-add, .btn-eliminar-todas .img-add, .btn-eliminar-todas .img-eliminar-todas {
+.btn-add .img-add, .editando .btn-confirmar .img-add, .editando .btn-cancelar .img-add, .tarea .btn-check .img-add, .tarea .check .img-add, .tarea .btn-editar .img-add, .tarea .btn-eliminar .img-add, .btn-eliminar-todas .img-add, .btn-eliminar-todas .img-eliminar-todas {
   width: 30px;
   height: 30px;
 }
@@ -67,17 +67,17 @@ body {
   padding: 0.3rem 0.5rem;
   border-radius: 5px;
 }
-.tarea .btn-check, .tarea .btn-editar, .tarea .btn-eliminar {
+.tarea .btn-check, .tarea .check, .tarea .btn-editar, .tarea .btn-eliminar {
   width: 30px;
   height: 30px;
   border-radius: 15px;
   cursor: pointer;
 }
-.tarea .btn-check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover {
+.tarea .btn-check:hover, .tarea .check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover {
   transform: scale(1.2);
   transition: scale 0.2s;
 }
-.tarea .btn-check img, .tarea .btn-editar img, .tarea .btn-eliminar img {
+.tarea .btn-check img, .tarea .check img, .tarea .btn-editar img, .tarea .btn-eliminar img {
   width: 25px;
   height: 25px;
 }

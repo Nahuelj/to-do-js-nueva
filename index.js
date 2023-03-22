@@ -10,6 +10,7 @@ var botonTerminarTarea;
 var botonEditarTarea;
 var botonConfirmarEdit;
 var inputEdit;
+var botonesCheked = [];
 
 
 
@@ -84,11 +85,39 @@ function eliminarTarea () {
 function terminarTarea () {
     botonTerminarTarea.forEach(element => {
         element.onclick = () => {
-            element.parentNode.classList.toggle("terminada");
-            console.log(element);
+            element.parentNode.classList.add("terminada");
+            
+            var checked = document.createElement("button");
+            checked.classList.add("check");
+            var contenidoCheck =`<img src="./icons/check.png" alt="">`
+            checked.innerHTML = contenidoCheck;
+            element.replaceWith(checked);
+
+            botonesCheked = Array.from(document.getElementsByClassName("check"));
+            removeCheck();
         }
     });
 }
+
+function removeCheck (){
+    botonesCheked.forEach((boton)=>{
+    boton.onclick = () => {
+        boton.parentNode.classList.remove("terminada");
+
+        let botonCheck = document.createElement("button");
+        botonCheck.setAttribute("id", "terminar");
+        botonCheck.classList.add("btn-check");
+        botonCheck.innerHTML = `<img src="./icons/no-check.png" alt="">`
+        
+        boton.replaceWith(botonCheck);
+        botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
+        terminarTarea();
+        
+    };
+});
+}
+
+
 
 // EDITAR TAREA
 
@@ -129,7 +158,6 @@ function confirmarTarea(){
                 eliminarTarea();
                 terminarTarea();
                 editarTarea ();
-                console.log(inputEdit);
             }
             else{
                 return;
@@ -167,7 +195,6 @@ function editarTarea () {
             padre.replaceWith(contenedorEdit);
 
             inputEdit = Array.from(document.getElementsByClassName("edit"));
-            console.log(inputEdit);
             editarConEnter();
             registrarElementosEdit();
             confirmarTarea();
@@ -217,7 +244,6 @@ function editarConEnter () {
                 eliminarTarea();
                 terminarTarea();
                 editarTarea ();
-                console.log(inputEdit);
             }
         }
 
