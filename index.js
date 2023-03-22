@@ -250,3 +250,22 @@ function editarConEnter () {
     });
 })}
 
+// FECHA
+// Obtener la fecha actual
+const fecha = new Date();
+
+// Obtener los nombres de los días y meses en español
+const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+// Obtener el día de la semana, el día del mes y el año
+const diaSemana = dias[fecha.getDay()];
+const diaMes = fecha.getDate();
+const mes = meses[fecha.getMonth()];
+const anio = fecha.getFullYear();
+
+// Obtener el elemento HTML en el que se mostrará la fecha
+const fechaActual = document.getElementById("fecha-actual");
+
+// Actualizar el contenido del elemento HTML con la fecha actual
+fechaActual.textContent = `${diaSemana}, ${diaMes} de ${mes} de ${anio}`;

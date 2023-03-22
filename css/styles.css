@@ -5,10 +5,6 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: lightblue;
   font-family: sans-serif;
 }
@@ -43,6 +39,8 @@ body {
   padding: 1rem;
   background-color: rgba(128, 128, 128, 0.541);
   border-radius: 10px;
+  width: fit-content;
+  margin: auto;
 }
 .contenedor-principal .input-principal {
   padding: 0.5rem 0.5rem 0.3rem 0.5rem;
@@ -147,6 +145,33 @@ body {
   gap: 1rem;
   animation-name: eliminartodas;
   animation-duration: 0.5s;
+}
+
+.contenedor-titulo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo {
+  font-size: 3rem;
+  text-align: center;
+  margin: 1rem 0rem;
+}
+
+.fecha {
+  margin-top: 3rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.42);
+}
+
+.contenedor-encabezado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
