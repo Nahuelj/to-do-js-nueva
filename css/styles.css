@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  font-family: sans-serif;
+}
+
+.btn-add, .editando .btn-confirmar, .editando .btn-cancelar, .tarea .btn-check, .tarea .btn-editar, .tarea .btn-eliminar, .btn-eliminar-todas {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.btn-add:hover, .editando .btn-confirmar:hover, .editando .btn-cancelar:hover, .tarea .btn-check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover, .btn-eliminar-todas:hover {
+  transform: scale(1.2);
+  transition: scale 0.2s;
+}
+.btn-add:active, .editando .btn-confirmar:active, .editando .btn-cancelar:active, .tarea .btn-check:active, .tarea .btn-editar:active, .tarea .btn-eliminar:active, .btn-eliminar-todas:active {
+  opacity: 0.4;
+}
+.btn-add .img-add, .editando .btn-confirmar .img-add, .editando .btn-cancelar .img-add, .tarea .btn-check .img-add, .tarea .btn-editar .img-add, .tarea .btn-eliminar .img-add, .btn-eliminar-todas .img-add, .btn-eliminar-todas .img-eliminar-todas {
+  width: 30px;
+  height: 30px;
+}
+
+.contenedor-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(128, 128, 128, 0.541);
+  border-radius: 10px;
+}
+.contenedor-principal .input-principal {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.tarea {
+  width: fi;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.541);
+  color: white;
+  gap: 0.3rem;
+}
+.tarea .texto {
+  background-color: rgba(0, 0, 0, 0.653);
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+}
+.tarea .btn-check, .tarea .btn-editar, .tarea .btn-eliminar {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.tarea .btn-check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover {
+  transform: scale(1.2);
+  transition: scale 0.2s;
+}
+.tarea .btn-check img, .tarea .btn-editar img, .tarea .btn-eliminar img {
+  width: 25px;
+  height: 25px;
+}
+.tarea .btn-eliminar, .tarea .btn-editar {
+  background-color: transparent;
+  border: none;
+}
+.terminada .texto {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.editando .edit {
+  border-bottom: 1px solid black;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+.editando .btn-confirmar, .editando .btn-cancelar {
+  margin: 0rem 0.3rem;
+}
+.editando .btn-confirmar img, .editando .btn-cancelar img {
+  width: 30px;
+  height: 30px;
+}
+.container {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
