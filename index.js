@@ -95,7 +95,10 @@ function eliminarTarea () {
     botonElimiarTarea.forEach(element => {
         element.onclick = () => {
             element.parentNode.classList.remove("creada");
+            element.parentNode.classList.remove("editando");
             element.parentNode.classList.add("eliminada");
+
+            console.log(element.parentNode.parentNode.childNodes);
 
             function removerPadre(){
                 element.parentNode.remove();
@@ -215,6 +218,10 @@ function editarTarea () {
             let padre = element.parentNode;
             padre.replaceWith(contenedorEdit);
 
+            let inputFocus = contenedorEdit.firstElementChild;
+            inputFocus.focus();
+            inputFocus.selectionStart = inputFocus.value.length;
+            console.log(contenedorEdit);
 
             inputEdit = Array.from(document.getElementsByClassName("edit"));
             
@@ -225,10 +232,6 @@ function editarTarea () {
         }
     });
 }
-
-
-
-
 
 function editarConEnter () {
     inputEdit.forEach((input)=>{
