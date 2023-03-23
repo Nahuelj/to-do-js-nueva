@@ -20,7 +20,7 @@ var botonesCheked = [];
 function agregarTarea(){
 
     let textoTarea = inputCrearTarea.value;
-    let tarea =`<div class="tarea">
+    let tarea =`<div class="tarea creada">
 <button class="btn-check" id="terminar">
     <img src="./icons/no-check.png" alt="">
 </button>
@@ -34,6 +34,7 @@ function agregarTarea(){
 </div>`;
 
     if(textoTarea){
+        
         contenedorTareas.insertAdjacentHTML("beforeend", tarea);
         inputCrearTarea.value = "";
 
@@ -44,6 +45,8 @@ function agregarTarea(){
         eliminarTarea();
         terminarTarea();
         editarTarea ();
+
+        
     }
     else{
         alert("ingrese tarea")
@@ -85,6 +88,7 @@ function eliminarTarea () {
 function terminarTarea () {
     botonTerminarTarea.forEach(element => {
         element.onclick = () => {
+            element.parentNode.classList.remove("creada");
             element.parentNode.classList.add("terminada");
             
             var checked = document.createElement("button");
