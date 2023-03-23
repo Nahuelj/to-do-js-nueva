@@ -97,13 +97,9 @@ function eliminarTarea () {
             element.parentNode.classList.remove("creada");
             element.parentNode.classList.remove("editando");
             element.parentNode.classList.add("eliminada");
-
-            console.log(element.parentNode.parentNode.childNodes);
-
             function removerPadre(){
                 element.parentNode.remove();
             }
-
             setTimeout(removerPadre, 700);
         }
     });
