@@ -115,11 +115,15 @@
 
 .editando{
     .edit{
-        border-bottom: 1px solid black;
-        padding: .3rem;
-        border: none;
-        border-radius: 5px;
-        outline: none;
+        padding:.5rem .5rem .3rem .5rem;
+            border: none;
+            border-bottom: 1px solid black;
+            background-color: transparent;
+            outline: none;
+            font-size: 1rem;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.653);
+            border-radius: 10px;
     }
     .btn-confirmar{
         @extend .btn-add;
@@ -135,7 +139,8 @@
 }
 
 .container{
-    margin: 1rem;
+    width: fit-content;
+    margin: 1rem auto auto auto;
     display: flex;
     flex-direction: column;
     justify-content: center;

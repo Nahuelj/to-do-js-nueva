@@ -20,7 +20,7 @@ var botonesCheked = [];
 function agregarTarea(){
 
     let textoTarea = inputCrearTarea.value;
-    let tarea =`<div class="tarea creada">
+    let tarea =`
 <button class="btn-check" id="terminar">
     <img src="./icons/no-check.png" alt="">
 </button>
@@ -30,12 +30,15 @@ function agregarTarea(){
 </button>
 <button class="btn-editar" id="editar">
     <img src="./icons/editar.png" alt="">
-</button>
-</div>`;
+</button>`;
+    let divTarea = document.createElement("div");
+    divTarea.classList.add("tarea");
+    divTarea.classList.add("creada");
+    divTarea.insertAdjacentHTML("beforeend", tarea);
 
     if(textoTarea){
-        
-        contenedorTareas.insertAdjacentHTML("beforeend", tarea);
+
+        contenedorTareas.insertAdjacentElement("beforeend", divTarea);
         inputCrearTarea.value = "";
 
         botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
@@ -68,7 +71,20 @@ inputCrearTarea.addEventListener("keyup", crearConEnter);
 // ELIMINAR TODAS
 
 function eliminarTodas (){
-    contenedorTareas.innerHTML = "";
+    contenedorTareas.classList.add("eliminada");
+
+    function borrarTodo (){
+        contenedorTareas.innerHTML = "";
+
+    }
+
+    setTimeout(borrarTodo, 800)
+    
+    function volverNormal(){
+        contenedorTareas.classList.remove("eliminada");
+    }
+
+    setTimeout(volverNormal, 1000);
 }
 
 botonElimiarTodas.addEventListener("click", eliminarTodas);
@@ -78,7 +94,14 @@ botonElimiarTodas.addEventListener("click", eliminarTodas);
 function eliminarTarea () {
     botonElimiarTarea.forEach(element => {
         element.onclick = () => {
-            element.parentNode.remove();
+            element.parentNode.classList.remove("creada");
+            element.parentNode.classList.add("eliminada");
+
+            function removerPadre(){
+                element.parentNode.remove();
+            }
+
+            setTimeout(removerPadre, 700);
         }
     });
 }
@@ -150,6 +173,7 @@ function confirmarTarea(){
                 
                 let contenedorTareaModificada = document.createElement('div');
                 contenedorTareaModificada.classList.add("tarea");
+                contenedorTareaModificada.classList.add("editando");
                 contenedorTareaModificada.insertAdjacentHTML("beforeend", nuevaTarea);
                 let padre = item.parentNode;
                 padre.replaceWith(contenedorTareaModificada);
@@ -172,13 +196,6 @@ function confirmarTarea(){
 
 
 
-
-
-
-
-
-
-
 function editarTarea () {
     botonEditarTarea.forEach(element => {
         element.onclick =  function editar () {
@@ -198,16 +215,15 @@ function editarTarea () {
             let padre = element.parentNode;
             padre.replaceWith(contenedorEdit);
 
+
             inputEdit = Array.from(document.getElementsByClassName("edit"));
+            
+
             editarConEnter();
             registrarElementosEdit();
             confirmarTarea();
         }
-
-
-        
     });
-   
 }
 
 
@@ -236,6 +252,7 @@ function editarConEnter () {
                 
                 let contenedorTareaModificada = document.createElement('div');
                 contenedorTareaModificada.classList.add("tarea");
+                contenedorTareaModificada.classList.add("editando");
                 contenedorTareaModificada.insertAdjacentHTML("beforeend", nuevaTarea);
                 let padre = input.parentNode;
                 padre.replaceWith(contenedorTareaModificada);
