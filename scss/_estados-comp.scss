@@ -1,0 +1,17 @@
+.creada{
+    animation-name: creada;
+    animation-duration: 1s;
+    animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.check{
+    animation-name: icon-check;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+}
+
+.eliminada{
+    animation-name: eliminada;
+    animation-duration: 10s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
