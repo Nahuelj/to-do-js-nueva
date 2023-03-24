@@ -40,3 +40,13 @@
         opacity: 1;
     }
 }
+
+@keyframes mover-arriba {
+    from{
+        transform: translateY(0);
+    }
+
+    to{
+        transform: translateY(-78px);
+    }
+}

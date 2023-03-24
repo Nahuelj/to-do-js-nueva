@@ -182,6 +182,14 @@
     opacity: 1;
   }
 }
+@keyframes mover-arriba {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-78px);
+  }
+}
 .creada {
   animation-name: creada;
   animation-duration: 1s;
@@ -204,6 +212,12 @@
   animation-name: editando;
   animation-duration: 0.5s;
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mover-arriba {
+  animation-name: mover-arriba;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 * {

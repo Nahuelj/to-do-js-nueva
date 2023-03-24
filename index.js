@@ -97,12 +97,41 @@ function eliminarTarea () {
             element.parentNode.classList.remove("creada");
             element.parentNode.classList.remove("editando");
             element.parentNode.classList.add("eliminada");
+            
+            let hijos = Array.from(element.parentNode.parentNode.children);
+
+            console.log(hijos);
+
+            let hijo = element.parentNode;
+            let posicion = Array.prototype.indexOf.call(hijos, hijo);
+
+
+            let partida = posicion + 1;
+            let llegada = (hijos.length-1);
+            let elementosSubir = llegada - partida;
+            console.log(" elementos "+ elementosSubir);
+
+            for (let i = partida; i <= llegada; i++) {
+                hijos[i].classList.remove("creada");
+                hijos[i].classList.add("mover-arriba");
+            }
+
+
+            console.log(`partida ${partida}`);
+            console.log(`llegada ${llegada}`);
+            console.log(`elementos a modificar ${elementosSubir}`);
+
+
             function removerPadre(){
                 element.parentNode.remove();
             }
             setTimeout(removerPadre, 700);
         }
     });
+}
+
+function subirDespuesDeEliminar(){
+
 }
 
 // TERMINAR TAREA
