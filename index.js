@@ -135,7 +135,7 @@ function removeCheck (){
     botonesCheked.forEach((boton)=>{
     boton.onclick = () => {
         boton.parentNode.classList.remove("terminada");
-
+        boton.parentNode.classList.add("creada");
         let botonCheck = document.createElement("button");
         botonCheck.setAttribute("id", "terminar");
         botonCheck.classList.add("btn-check");
@@ -180,10 +180,11 @@ function confirmarTarea(){
                 let contenedorTareaModificada = document.createElement('div');
                 contenedorTareaModificada.classList.add("tarea");
                 contenedorTareaModificada.classList.add("editando");
+                contenedorTareaModificada.classList.add("creada");
                 contenedorTareaModificada.insertAdjacentHTML("beforeend", nuevaTarea);
                 let padre = item.parentNode;
                 padre.replaceWith(contenedorTareaModificada);
-
+                contenedorTareaModificada.classList.remove("editando");
 
                 botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
                 botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
@@ -193,6 +194,8 @@ function confirmarTarea(){
                 terminarTarea();
                 editarTarea ();
                 guardarStorage();
+
+                
             }
             else{
                 return;
@@ -261,6 +264,7 @@ function editarConEnter () {
                 let contenedorTareaModificada = document.createElement('div');
                 contenedorTareaModificada.classList.add("tarea");
                 contenedorTareaModificada.classList.add("editando");
+                contenedorTareaModificada.classList.add("creada");
                 contenedorTareaModificada.insertAdjacentHTML("beforeend", nuevaTarea);
                 let padre = input.parentNode;
                 padre.replaceWith(contenedorTareaModificada);
@@ -314,10 +318,12 @@ function recuperarStorage (){
 
         botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
         botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
+        botonesCheked = Array.from(document.getElementsByClassName("check"));
         botonEditarTarea = Array.from(document.querySelectorAll("#editar"));
 
         eliminarTarea();
         terminarTarea();
+        removeCheck ();
         editarTarea ();
     }
 }
