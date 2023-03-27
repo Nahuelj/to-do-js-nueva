@@ -13,6 +13,9 @@ var inputEdit;
 var botonesCheked = [];
 
 
+// CARGAR STORAGE
+
+recuperarStorage();
 
 // CREAT TAREA
 
@@ -48,13 +51,11 @@ function agregarTarea(){
         eliminarTarea();
         terminarTarea();
         editarTarea ();
-
-        
+        guardarStorage();
     }
     else{
         alert("ingrese tarea")
     }
-    
 }
 
 function crearConEnter (event) {
@@ -75,13 +76,14 @@ function eliminarTodas (){
 
     function borrarTodo (){
         contenedorTareas.innerHTML = "";
-
+        guardarStorage();
     }
 
-    setTimeout(borrarTodo, 800)
+    setTimeout(borrarTodo, 100)
     
     function volverNormal(){
         contenedorTareas.classList.remove("eliminada");
+        guardarStorage();
     }
 
     setTimeout(volverNormal, 1000);
@@ -97,41 +99,15 @@ function eliminarTarea () {
             element.parentNode.classList.remove("creada");
             element.parentNode.classList.remove("editando");
             element.parentNode.classList.add("eliminada");
-            
-            let hijos = Array.from(element.parentNode.parentNode.children);
-
-            console.log(hijos);
-
-            let hijo = element.parentNode;
-            let posicion = Array.prototype.indexOf.call(hijos, hijo);
-
-
-            let partida = posicion + 1;
-            let llegada = (hijos.length-1);
-            let elementosSubir = llegada - partida;
-            console.log(" elementos "+ elementosSubir);
-
-            for (let i = partida; i <= llegada; i++) {
-                hijos[i].classList.remove("creada");
-                hijos[i].classList.add("mover-arriba");
-            }
-
-
-            console.log(`partida ${partida}`);
-            console.log(`llegada ${llegada}`);
-            console.log(`elementos a modificar ${elementosSubir}`);
-
-
-            function removerPadre(){
+                function removerPadre(){
                 element.parentNode.remove();
-            }
-            setTimeout(removerPadre, 700);
+                guardarStorage();
+
+                }
+                setTimeout(removerPadre, 350)
+                
         }
     });
-}
-
-function subirDespuesDeEliminar(){
-
 }
 
 // TERMINAR TAREA
@@ -150,6 +126,7 @@ function terminarTarea () {
 
             botonesCheked = Array.from(document.getElementsByClassName("check"));
             removeCheck();
+            guardarStorage();
         }
     });
 }
@@ -167,6 +144,7 @@ function removeCheck (){
         boton.replaceWith(botonCheck);
         botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
         terminarTarea();
+        guardarStorage();
         
     };
 });
@@ -214,6 +192,7 @@ function confirmarTarea(){
                 eliminarTarea();
                 terminarTarea();
                 editarTarea ();
+                guardarStorage();
             }
             else{
                 return;
@@ -254,6 +233,7 @@ function editarTarea () {
             editarConEnter();
             registrarElementosEdit();
             confirmarTarea();
+            guardarStorage();
         }
     });
 }
@@ -293,6 +273,7 @@ function editarConEnter () {
                 eliminarTarea();
                 terminarTarea();
                 editarTarea ();
+                guardarStorage();
             }
         }
 
@@ -318,3 +299,25 @@ const fechaActual = document.getElementById("fecha-actual");
 
 // Actualizar el contenido del elemento HTML con la fecha actual
 fechaActual.textContent = `${diaSemana}, ${diaMes} de ${mes} de ${anio}`;
+
+// LOCAL STORAGE
+
+function guardarStorage (){
+    let tareas = contenedorTareas.innerHTML;
+    localStorage.setItem("sesion", JSON.stringify(tareas));
+}
+
+function recuperarStorage (){
+    if(localStorage.getItem("sesion")){
+        let tareasRegistradas = JSON.parse(localStorage.getItem("sesion"));
+        contenedorTareas.insertAdjacentHTML("beforeend", tareasRegistradas);
+
+        botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
+        botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
+        botonEditarTarea = Array.from(document.querySelectorAll("#editar"));
+
+        eliminarTarea();
+        terminarTarea();
+        editarTarea ();
+    }
+}

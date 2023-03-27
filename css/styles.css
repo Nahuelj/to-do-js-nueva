@@ -165,11 +165,11 @@
   }
 }
 @keyframes eliminada {
-  from {
+  0% {
     opacity: 1;
     transform: translateX(0);
   }
-  to {
+  100% {
     opacity: 0;
     transform: translateX(50%);
   }
@@ -183,10 +183,10 @@
   }
 }
 @keyframes mover-arriba {
-  from {
+  0% {
     transform: translateY(0);
   }
-  to {
+  100% {
     transform: translateY(-78px);
   }
 }
@@ -204,7 +204,7 @@
 
 .eliminada {
   animation-name: eliminada;
-  animation-duration: 0.9s;
+  animation-duration: 0.4s;
   animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -218,6 +218,7 @@
   animation-name: mover-arriba;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation-iteration-count: infinite;
 }
 
 * {

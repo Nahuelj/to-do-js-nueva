@@ -20,16 +20,18 @@
 }
 
 @keyframes eliminada {
-    from {
+    0% {
         opacity: 1;
         transform: translateX(0);
     }
-
-    to {
+    
+    100% {
         opacity: 0;
         transform: translateX(50%);
     }
 }
+
+
 
 @keyframes editando {
     from{
@@ -42,11 +44,11 @@
 }
 
 @keyframes mover-arriba {
-    from{
+    0%{
         transform: translateY(0);
     }
 
-    to{
+    100%{
         transform: translateY(-78px);
     }
 }
