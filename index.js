@@ -24,7 +24,7 @@ function agregarTarea(){
 
     let textoTarea = inputCrearTarea.value;
     let tarea =`
-<button class="btn-check" id="terminar">
+<button class="boton-check" id="terminar">
     <img src="./icons/no-check.png" alt="">
 </button>
 <p class="texto" id="texto">${textoTarea}</p>
@@ -119,12 +119,13 @@ function terminarTarea () {
             element.parentNode.classList.add("terminada");
             
             var checked = document.createElement("button");
-            checked.classList.add("check");
+            checked.classList.add("boton-check");
+            checked.setAttribute("id", "negro");
             var contenidoCheck =`<img src="./icons/check.png" alt="">`
             checked.innerHTML = contenidoCheck;
             element.replaceWith(checked);
 
-            botonesCheked = Array.from(document.getElementsByClassName("check"));
+            botonesCheked = Array.from(document.querySelectorAll("#negro"));
             removeCheck();
             guardarStorage();
         }
@@ -138,7 +139,7 @@ function removeCheck (){
         boton.parentNode.classList.add("creada");
         let botonCheck = document.createElement("button");
         botonCheck.setAttribute("id", "terminar");
-        botonCheck.classList.add("btn-check");
+        botonCheck.classList.add("boton-check");
         botonCheck.innerHTML = `<img src="./icons/no-check.png" alt="">`
         
         boton.replaceWith(botonCheck);
@@ -164,7 +165,7 @@ function confirmarTarea(){
         item.onclick = () => {
             let valorNuevo = item.parentNode.firstElementChild.value;
             let nuevaTarea = `
-            <button class="btn-check" id="terminar">
+            <button class="boton-check" id="terminar">
                 <img src="./icons/no-check.png" alt="">
             </button>
             <p class="texto" id="texto">${valorNuevo}</p>
@@ -248,7 +249,7 @@ function editarConEnter () {
 
                 let valorNuevo = input.parentNode.firstElementChild.value;
                 let nuevaTarea = `
-            <button class="btn-check" id="terminar">
+            <button class="boton-check" id="terminar">
                 <img src="./icons/no-check.png" alt="">
             </button>
             <p class="texto" id="texto">${valorNuevo}</p>
@@ -325,5 +326,8 @@ function recuperarStorage (){
         terminarTarea();
         removeCheck ();
         editarTarea ();
+        registrarElementosEdit();
+        confirmarTarea();
+        editarConEnter();
     }
 }

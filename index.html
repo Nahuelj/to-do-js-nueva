@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-do</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./icons/to-do-list.png" type="image/x-icon">
 </head>
 
 <body>
@@ -14,10 +16,66 @@
     <div class="contenedor-titulo">
 
         <p id="fecha-actual" class="fecha"></p>
-        <div class="contenedor-encabezado">
-            <h1 class="titulo">To-do </h1>
-            <img src="./icons/to-do-list.png" alt="lista de tareas">
-        </div>
+
+
+        <nav class="navbar">
+            <div class="container-fluid contenedor-logo">
+              <a class="navbar-brand" href="#">To-do <img src="./icons/to-do.png" alt=""></a>
+              <button id="btn-configuracion" class="boton-config navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <img src="./icons/config.png" alt="">
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Configuración <img src="./icons/ajustes.png" alt=""></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    
+                    <li class="cambiar-tema">
+                      
+                        <p class="abajo">Cambiar tema<img src="./icons/abajo.png" alt=""></p> 
+                        <div class="contenedor-temas">
+                          <button id="btn-claro" class="btn btn-light">Claro <img src="./icons/sol.png" alt=""></button>
+                          <button id="btn-oscuro" class="btn btn-dark">Oscuro <img src="./icons/luna.png" alt=""></button>
+                          <p>
+                              <button id="btn-personalizar" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                                Personalizar <img src="./icons/pincel.png" alt="">
+                              </button>
+                            </p>
+                            <div style="min-height: 120px;">
+                              <div class="collapse collapse-horizontal" id="collapseWidthExample">
+    
+                                <div class="card card-body body-personalizar" style="width: 300px;">
+                                    <div class="color-p">
+                                        <p class="parrafo">Color principal:</p>
+                                        <input type="color">
+                                    </div>
+                                    
+                                    <div class="color-s">
+                                      <p class="parrafo">Color secundario:</p>
+                                      <input type="color">
+                                    </div>
+
+                                    <div class="color-s">
+                                        <p class="parrafo">Color de texto:</p>
+                                        <input type="color">
+                                      </div>
+                                    
+                                      <button class="btn btn-primary">Guardar</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        
+                    </li>
+    
+                      </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+
         
     </div>
     
@@ -35,6 +93,7 @@
     <div class="container" id="container"></div>
 
     <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>
 
 </html>

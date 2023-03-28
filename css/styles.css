@@ -1,4 +1,4 @@
-.btn-add, .editando .btn-confirmar, .editando .btn-cancelar, .tarea .btn-check, .tarea .check, .tarea .btn-editar, .tarea .btn-eliminar, .btn-eliminar-todas {
+.btn-add, .editando .btn-confirmar, .editando .btn-cancelar, .tarea .boton-check, .tarea .check, .tarea .btn-editar, .tarea .btn-eliminar, .btn-eliminar-todas {
   width: 30px;
   height: 30px;
   display: flex;
@@ -8,14 +8,14 @@
   border: none;
   cursor: pointer;
 }
-.btn-add:hover, .editando .btn-confirmar:hover, .editando .btn-cancelar:hover, .tarea .btn-check:hover, .tarea .check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover, .btn-eliminar-todas:hover {
+.btn-add:hover, .editando .btn-confirmar:hover, .editando .btn-cancelar:hover, .tarea .boton-check:hover, .tarea .check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover, .btn-eliminar-todas:hover {
   transform: scale(1.2);
   transition: scale 0.2s;
 }
-.btn-add:active, .editando .btn-confirmar:active, .editando .btn-cancelar:active, .tarea .btn-check:active, .tarea .check:active, .tarea .btn-editar:active, .tarea .btn-eliminar:active, .btn-eliminar-todas:active {
+.btn-add:active, .editando .btn-confirmar:active, .editando .btn-cancelar:active, .tarea .boton-check:active, .tarea .check:active, .tarea .btn-editar:active, .tarea .btn-eliminar:active, .btn-eliminar-todas:active {
   opacity: 0.4;
 }
-.btn-add .img-add, .editando .btn-confirmar .img-add, .editando .btn-cancelar .img-add, .tarea .btn-check .img-add, .tarea .check .img-add, .tarea .btn-editar .img-add, .tarea .btn-eliminar .img-add, .btn-eliminar-todas .img-add, .btn-eliminar-todas .img-eliminar-todas {
+.btn-add .img-add, .editando .btn-confirmar .img-add, .editando .btn-cancelar .img-add, .tarea .boton-check .img-add, .tarea .check .img-add, .tarea .btn-editar .img-add, .tarea .btn-eliminar .img-add, .btn-eliminar-todas .img-add, .btn-eliminar-todas .img-eliminar-todas {
   width: 30px;
   height: 30px;
 }
@@ -65,18 +65,19 @@
   background-color: rgba(0, 0, 0, 0.653);
   padding: 0.3rem 0.5rem;
   border-radius: 5px;
+  margin: 0;
 }
-.tarea .btn-check, .tarea .check, .tarea .btn-editar, .tarea .btn-eliminar {
+.tarea .boton-check, .tarea .check, .tarea .btn-editar, .tarea .btn-eliminar {
   width: 30px;
   height: 30px;
   border-radius: 15px;
   cursor: pointer;
 }
-.tarea .btn-check:hover, .tarea .check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover {
+.tarea .boton-check:hover, .tarea .check:hover, .tarea .btn-editar:hover, .tarea .btn-eliminar:hover {
   transform: scale(1.2);
   transition: scale 0.2s;
 }
-.tarea .btn-check img, .tarea .check img, .tarea .btn-editar img, .tarea .btn-eliminar img {
+.tarea .boton-check img, .tarea .check img, .tarea .btn-editar img, .tarea .btn-eliminar img {
   width: 25px;
   height: 25px;
 }
@@ -122,7 +123,6 @@
 .contenedor-titulo {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   justify-content: center;
   align-items: center;
 }
@@ -137,6 +137,7 @@
   margin-top: 3rem;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.42);
+  margin-bottom: 0;
 }
 
 .contenedor-encabezado {
@@ -230,6 +231,129 @@
 body {
   background-color: lightblue;
   font-family: sans-serif;
+}
+
+nav {
+  height: 100px;
+}
+nav .container-fluid {
+  display: flex;
+  justify-content: center !important;
+  gap: 1rem;
+}
+nav .container-fluid button img {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.boton-config {
+  opacity: 0.4;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px rgba(0, 0, 0, 0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  top: 3px;
+}
+.boton-config:hover {
+  transform: scale(1.1);
+}
+
+.navbar-brand {
+  font-size: 3rem;
+  font-weight: 700;
+  cursor: auto;
+  margin: 0;
+}
+
+.cambiar-tema {
+  display: flex;
+  flex-direction: column;
+}
+.cambiar-tema img {
+  width: 20px;
+  display: inline;
+}
+
+.contenedor-temas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contenedor-temas button {
+  width: fit-content !important;
+}
+
+.abajo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  display: flex;
+  gap: 0.5rem;
+}
+.btn img {
+  width: 20px;
+}
+
+input[type=color] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.color-p {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.447);
+}
+.color-p img {
+  display: none;
+}
+
+.color-s {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.447);
+}
+.color-s img {
+  display: none;
+}
+
+.parrafo {
+  margin: 0;
+}
+
+.body-personalizar {
+  display: flex;
+  flex-direction: column;
+  width: 250px !important;
+  gap: 1.5rem;
+}
+
+.offcanvas-title {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.offcanvas-title img {
+  width: 35px;
+}
+
+.btn-close {
+  width: 35px !important;
+  height: 35px !important;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=styles.css.map */
