@@ -333,7 +333,6 @@ function recuperarStorage (){
         botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
         botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
         botonesCheked = Array.from(document.querySelectorAll("#negro"));
-        botonesCheked = Array.from(document.getElementsByClassName("boton-check"));
         botonEditarTarea = Array.from(document.querySelectorAll("#editar"));
 
         eliminarTarea();
