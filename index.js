@@ -196,10 +196,12 @@ function confirmarTarea(){
                 botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
                 botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
                 botonEditarTarea = Array.from(document.querySelectorAll("#editar"));
+                texto = Array.from(document.querySelectorAll("#texto"));
                 registrarElementosEdit();
                 eliminarTarea();
                 terminarTarea();
                 editarTarea ();
+                
                 personalizar();
                 guardarStorage();
 
@@ -238,7 +240,7 @@ function editarTarea () {
             inputFocus.selectionStart = inputFocus.value.length;
 
             inputEdit = Array.from(document.getElementsByClassName("edit"));
-            
+            texto = Array.from(document.querySelectorAll("#texto"));
 
             editarConEnter();
             registrarElementosEdit();
@@ -281,6 +283,8 @@ function editarConEnter () {
                 botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
                 botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
                 botonEditarTarea = Array.from(document.querySelectorAll("#editar"));
+                texto = Array.from(document.querySelectorAll("#texto"));
+
                 registrarElementosEdit();
                 eliminarTarea();
                 terminarTarea();
@@ -420,14 +424,25 @@ function personalizar() {
     colorTarjeta();
 
     function colorTexto(){
-        texto.forEach(element => {
             texto = Array.from(document.querySelectorAll("#texto"));
+        texto.forEach(element => {
             element.style.backgroundColor = inputColorFondoTexto.value;
             element.style.color = inputColorTexto.value;
         });
     }
 
     colorTexto();
+
+
+    function colorEditando(){
+        inputEdit = Array.from(document.getElementsByClassName("edit"));
+        inputEdit.forEach(item => {
+            item.style.backgroundColor = inputColorFondoTexto.value;
+            item.style.color = inputColorTexto.value;
+         });
+        }
+
+        colorEditando();
     guardarTema();
     
 }
