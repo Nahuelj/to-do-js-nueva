@@ -53,14 +53,14 @@
 }
 
 .contenedor-principal {
+  width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 0.8rem;
   background-color: rgba(128, 128, 128, 0.541);
   border-radius: 10px;
-  width: fit-content;
   margin: auto;
 }
 .contenedor-principal .input-principal {
