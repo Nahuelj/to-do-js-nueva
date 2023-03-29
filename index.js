@@ -17,6 +17,8 @@ var botonesCheked = [];
 
 recuperarStorage();
 
+
+
 // CREAT TAREA
 
 
@@ -48,10 +50,14 @@ function agregarTarea(){
         botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
         botonEditarTarea = Array.from(document.querySelectorAll("#editar"));
 
+        texto = Array.from(document.querySelectorAll("#texto"));
+
         eliminarTarea();
         terminarTarea();
         editarTarea ();
+        personalizar();
         guardarStorage();
+        
     }
     else{
         alert("ingrese tarea")
@@ -194,6 +200,7 @@ function confirmarTarea(){
                 eliminarTarea();
                 terminarTarea();
                 editarTarea ();
+                personalizar();
                 guardarStorage();
 
                 
@@ -229,7 +236,6 @@ function editarTarea () {
             let inputFocus = contenedorEdit.firstElementChild;
             inputFocus.focus();
             inputFocus.selectionStart = inputFocus.value.length;
-            console.log(contenedorEdit);
 
             inputEdit = Array.from(document.getElementsByClassName("edit"));
             
@@ -237,6 +243,7 @@ function editarTarea () {
             editarConEnter();
             registrarElementosEdit();
             confirmarTarea();
+            personalizar();
             guardarStorage();
         }
     });
@@ -278,6 +285,7 @@ function editarConEnter () {
                 eliminarTarea();
                 terminarTarea();
                 editarTarea ();
+                personalizar();
                 guardarStorage();
             }
         }
@@ -312,6 +320,7 @@ function guardarStorage (){
     localStorage.setItem("sesion", JSON.stringify(tareas));
 }
 
+
 function recuperarStorage (){
     if(localStorage.getItem("sesion")){
         let tareasRegistradas = JSON.parse(localStorage.getItem("sesion"));
@@ -319,7 +328,8 @@ function recuperarStorage (){
 
         botonElimiarTarea = Array.from(document.querySelectorAll("#eliminar"));
         botonTerminarTarea = Array.from(document.querySelectorAll("#terminar"));
-        botonesCheked = Array.from(document.getElementsByClassName("check"));
+        botonesCheked = Array.from(document.querySelectorAll("#negro"));
+        botonesCheked = Array.from(document.getElementsByClassName("boton-check"));
         botonEditarTarea = Array.from(document.querySelectorAll("#editar"));
 
         eliminarTarea();
@@ -331,3 +341,138 @@ function recuperarStorage (){
         editarConEnter();
     }
 }
+
+function guardarTema(){
+    localStorage.setItem("colorFondo", JSON.stringify(inputColorFondo.value));
+    localStorage.setItem("colorTarjeta", JSON.stringify(inputColorTarjeta.value));
+    localStorage.setItem("colorFondoTexto", JSON.stringify(inputColorFondoTexto.value));
+    localStorage.setItem("colorTexto", JSON.stringify(inputColorTexto.value));
+}
+
+function recuperarTema(){
+
+    inputColorFondo.value = JSON.parse(localStorage.getItem("colorFondo"));
+    inputColorTarjeta.value = JSON.parse(localStorage.getItem("colorTarjeta"));
+    inputColorFondoTexto.value = JSON.parse(localStorage.getItem("colorFondoTexto"));
+    inputColorTexto.value = JSON.parse(localStorage.getItem("colorTexto"));
+
+    personalizar();
+}
+
+
+
+
+
+
+
+// TEMAS    
+// BOTONES CLARO-OSCURO
+const botonClaro = document.querySelector("#boton-claro");
+const botonOscuro = document.querySelector("#boton-oscuro");
+const botonPersonalizar = document.querySelector("#boton-personalizar");
+const botonClose = document.querySelector("#boton-close");
+
+
+
+// ELEMENTOS A MODIFICAR
+
+const body = document.getElementById("cuerpo");
+const inputPrincipal = document.getElementById("contenedor-input");
+let tarjeta = Array.from(document.getElementsByClassName("tarea"));
+let texto = Array.from(document.querySelectorAll("#texto"));
+const todo = document.getElementById("to-do-logo");
+
+
+
+
+
+// INPUT PERSONALIZACION
+
+const inputColorFondo = document.getElementById("color-fondo");
+const inputColorTarjeta = document.getElementById("color-tarjeta");
+const inputColorFondoTexto = document.getElementById("color-fondo-texto");
+const inputColorTexto = document.getElementById("color-texto");
+const botonGuardar = document.getElementById("boton-guardar");
+
+inputColorFondo.value = "#ADD8E6";
+inputColorTarjeta.value = "#94A8AF"
+inputColorFondoTexto.value = "#333A3C";
+inputColorTexto.value = "#FFFFFF"
+
+
+// EVENTOS
+
+
+function personalizar() {
+    
+    body.style.backgroundColor = inputColorFondo.value;
+    inputPrincipal.style.backgroundColor = inputColorTarjeta.value;
+    inputCrearTarea.style.backgroundColor = inputColorFondoTexto.value;
+    inputCrearTarea.style.color = inputColorTexto.value;
+    
+    
+    function colorTarjeta(){
+        tarjeta = Array.from(document.getElementsByClassName("tarea"));
+        tarjeta.forEach(item => {
+        item.style.backgroundColor = inputColorTarjeta.value;
+    });
+}   
+    colorTarjeta();
+
+    function colorTexto(){
+        texto.forEach(element => {
+            texto = Array.from(document.querySelectorAll("#texto"));
+            element.style.backgroundColor = inputColorFondoTexto.value;
+            element.style.color = inputColorTexto.value;
+        });
+    }
+
+    colorTexto();
+    guardarTema();
+    
+}
+
+botonGuardar.addEventListener("click", personalizar);
+botonGuardar.addEventListener("click", ()=>{
+    
+    botonPersonalizar.click();
+
+    function cerrar (){
+        botonClose.click();
+    }
+    setTimeout(cerrar, 600);
+});
+
+
+function temaClaro(){
+    inputColorFondo.value = "#ADD8E6";
+    inputColorTarjeta.value = "#94A8AF"
+    inputColorFondoTexto.value = "#161F21";
+    inputColorTexto.value = "#FFFFFF"
+    todo.style.color = "black";
+    personalizar();
+    guardarTema();
+}
+
+
+function temaOscuro(){
+    inputColorFondo.value = "#1B4958";
+    inputColorTarjeta.value = "#405A62"
+    inputColorFondoTexto.value = "#161F21";
+    inputColorTexto.value = "#FFFFFF"
+    todo.style.color = "#FFFFFF"
+    personalizar();
+    guardarTema();
+}
+
+botonOscuro.addEventListener("click", temaOscuro);
+botonOscuro.addEventListener("click", ()=>{
+    botonClose.click();
+});
+
+botonClaro.addEventListener("click", temaClaro);
+botonClaro.addEventListener("click", ()=>{
+    botonClose.click();
+});
+
+recuperarTema();

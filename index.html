@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="./icons/to-do-list.png" type="image/x-icon">
 </head>
 
-<body>
+<body id="cuerpo">
     
     <div class="contenedor-titulo">
 
@@ -20,14 +20,15 @@
 
         <nav class="navbar">
             <div class="container-fluid contenedor-logo">
-              <a class="navbar-brand" href="#">To-do <img src="./icons/to-do.png" alt=""></a>
+              <a id="to-do-logo" class="navbar-brand" href="#">To-do <img src="./icons/to-do.png" alt=""></a>
               <button id="btn-configuracion" class="boton-config navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <img src="./icons/config.png" alt="">
               </button>
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+              <div class="offcanvas offcanvas-end barra-lateral" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Configuración <img src="./icons/ajustes.png" alt=""></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  <button id="boton-close" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -36,10 +37,10 @@
                       
                         <p class="abajo">Cambiar tema<img src="./icons/abajo.png" alt=""></p> 
                         <div class="contenedor-temas">
-                          <button id="btn-claro" class="btn btn-light">Claro <img src="./icons/sol.png" alt=""></button>
-                          <button id="btn-oscuro" class="btn btn-dark">Oscuro <img src="./icons/luna.png" alt=""></button>
+                          <button id="boton-claro" class="btn btn-light">Claro <img src="./icons/sol.png" alt=""></button>
+                          <button id="boton-oscuro" class="btn btn-dark">Oscuro <img src="./icons/luna.png" alt=""></button>
                           <p>
-                              <button id="btn-personalizar" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                              <button id="boton-personalizar" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                                 Personalizar <img src="./icons/pincel.png" alt="">
                               </button>
                             </p>
@@ -48,21 +49,26 @@
     
                                 <div class="card card-body body-personalizar" style="width: 300px;">
                                     <div class="color-p">
-                                        <p class="parrafo">Color principal:</p>
-                                        <input type="color">
+                                        <p class="parrafo">Color de fondo</p>
+                                        <input id="color-fondo" type="color">
                                     </div>
                                     
                                     <div class="color-s">
-                                      <p class="parrafo">Color secundario:</p>
-                                      <input type="color">
+                                      <p class="parrafo">Color de tarjeta</p>
+                                      <input id="color-tarjeta" type="color">
                                     </div>
 
-                                    <div class="color-s">
-                                        <p class="parrafo">Color de texto:</p>
-                                        <input type="color">
+                                    <div class="color-ft">
+                                        <p class="parrafo">Color fondo texto</p>
+                                        <input id="color-fondo-texto" type="color">
+                                      </div>
+
+                                    <div class="color-t">
+                                        <p class="parrafo">Color de texto</p>
+                                        <input id="color-texto" type="color">
                                       </div>
                                     
-                                      <button class="btn btn-primary">Guardar</button>
+                                      <button id="boton-guardar" class="btn btn-primary">Guardar</button>
                                 </div>
                               </div>
                             </div>
@@ -79,7 +85,7 @@
         
     </div>
     
-    <div class="contenedor-principal">
+    <div id="contenedor-input" class="contenedor-principal">
         
         <input type="text" placeholder="Ingrese su nueva tarea" id="input-principal" class="input-principal">
         <button id="crearTarea" class="btn-add">

@@ -18,7 +18,7 @@ nav {
 	}
 }
 .boton-config {
-	opacity: .4;
+	opacity: .6;
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
@@ -29,6 +29,7 @@ nav {
 	align-content: center;
 	position: relative;
 	top: 3px;
+	box-shadow: 0px 0px 5px black;
 	&:hover {
 		transform: scale(1.1);
 	}
@@ -50,7 +51,7 @@ nav {
 .contenedor-temas {
 	display: flex;
 	flex-direction: column;
-	gap: .5rem;
+	gap: 1rem;
 	button {
 		width: fit-content !important;
 	}
@@ -73,7 +74,7 @@ input[type="color"] {
 .color-p {
 	display: flex;
 	align-items: center;
-	gap: 2rem;
+	gap: 2.3rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.447);
 	img {
@@ -83,7 +84,30 @@ input[type="color"] {
 .color-s {
 	display: flex;
 	align-items: center;
-	gap: 1rem;
+	gap: 2rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.447);
+	img {
+		display: none;
+	}
+}
+
+
+.color-ft {
+	display: flex;
+	align-items: center;
+	gap: 1.1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.447);
+	img {
+		display: none;
+	}
+}
+
+.color-t {
+	display: flex;
+	align-items: center;
+	gap: 2.6rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.447);
 	img {
@@ -111,4 +135,13 @@ input[type="color"] {
 	width: 35px !important;
 	height: 35px !important;
 	border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand{
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+}
+
+.barra-lateral{
+	background-color: rgb(228, 228, 228);
 }
