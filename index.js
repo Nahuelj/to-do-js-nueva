@@ -489,4 +489,5 @@ botonClaro.addEventListener("click", ()=>{
     botonClose.click();
 });
 
+guardarTema();
 recuperarTema();
