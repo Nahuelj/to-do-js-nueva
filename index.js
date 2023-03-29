@@ -19,6 +19,8 @@ recuperarStorage();
 
 
 
+
+
 // CREAT TAREA
 
 
@@ -124,12 +126,14 @@ function terminarTarea () {
             element.parentNode.classList.remove("creada");
             element.parentNode.classList.add("terminada");
             
-            var checked = document.createElement("button");
+            let checked = document.createElement("button");
             checked.classList.add("boton-check");
             checked.setAttribute("id", "negro");
-            var contenidoCheck =`<img src="./icons/check.png" alt="">`
+            let contenidoCheck =`<img src="./icons/check.png" alt="">`
             checked.innerHTML = contenidoCheck;
             element.replaceWith(checked);
+
+
 
             botonesCheked = Array.from(document.querySelectorAll("#negro"));
             removeCheck();
@@ -345,24 +349,6 @@ function recuperarStorage (){
     }
 }
 
-function guardarTema(){
-    localStorage.setItem("colorFondo", JSON.stringify(inputColorFondo.value));
-    localStorage.setItem("colorTarjeta", JSON.stringify(inputColorTarjeta.value));
-    localStorage.setItem("colorFondoTexto", JSON.stringify(inputColorFondoTexto.value));
-    localStorage.setItem("colorTexto", JSON.stringify(inputColorTexto.value));
-}
-
-function recuperarTema(){
-
-    inputColorFondo.value = JSON.parse(localStorage.getItem("colorFondo"));
-    inputColorTarjeta.value = JSON.parse(localStorage.getItem("colorTarjeta"));
-    inputColorFondoTexto.value = JSON.parse(localStorage.getItem("colorFondoTexto"));
-    inputColorTexto.value = JSON.parse(localStorage.getItem("colorTexto"));
-
-    personalizar();
-}
-
-
 
 
 
@@ -397,10 +383,6 @@ const inputColorFondoTexto = document.getElementById("color-fondo-texto");
 const inputColorTexto = document.getElementById("color-texto");
 const botonGuardar = document.getElementById("boton-guardar");
 
-inputColorFondo.value = "#ADD8E6";
-inputColorTarjeta.value = "#94A8AF"
-inputColorFondoTexto.value = "#333A3C";
-inputColorTexto.value = "#FFFFFF"
 
 
 // EVENTOS
@@ -465,7 +447,6 @@ function temaClaro(){
     inputColorTexto.value = "#FFFFFF"
     todo.style.color = "black";
     personalizar();
-    guardarTema();
 }
 
 
@@ -476,7 +457,6 @@ function temaOscuro(){
     inputColorTexto.value = "#FFFFFF"
     todo.style.color = "#FFFFFF"
     personalizar();
-    guardarTema();
 }
 
 botonOscuro.addEventListener("click", temaOscuro);
@@ -489,5 +469,48 @@ botonClaro.addEventListener("click", ()=>{
     botonClose.click();
 });
 
-guardarTema();
+
+
+
+// STORAGE TEMAS
+
+function guardarTema(){
+    localStorage.setItem("colorFondo", JSON.stringify(inputColorFondo.value));
+    localStorage.setItem("colorTarjeta", JSON.stringify(inputColorTarjeta.value));
+    localStorage.setItem("colorFondoTexto", JSON.stringify(inputColorFondoTexto.value));
+    localStorage.setItem("colorTexto", JSON.stringify(inputColorTexto.value));
+    localStorage.setItem("colorTodo", JSON.stringify(todo.style.color));
+}
+
+
+function recuperarTema(){
+
+    inputColorFondo.value = JSON.parse(localStorage.getItem("colorFondo"));
+    inputColorTarjeta.value = JSON.parse(localStorage.getItem("colorTarjeta"));
+    inputColorFondoTexto.value = JSON.parse(localStorage.getItem("colorFondoTexto"));
+    inputColorTexto.value = JSON.parse(localStorage.getItem("colorTexto"));
+    todo.style.color = JSON.parse(localStorage.getItem("colorTodo"));
+    
+
+    personalizar();
+}
+
+// Comprobar si la clave 'primeraVez' existe en localStorage
+if (!localStorage.getItem('primeraVez')) {
+    // Si no existe, ejecutar el código deseado
+    console.log('Es la primera vez que se abre la página');
+    temaClaro();
+    let elementoARegistrar = Array.from(document.getElementsByClassName("tarea"));
+
+    elementoARegistrar.forEach(item => {
+        item.children[0].classList.remove("btn-check");
+        item.children[0].classList.add("boton-check");
+    });
+
+    // Guardar un valor en localStorage para indicar que ya se ha ejecutado el código
+    localStorage.setItem('primeraVez', true);
+  }
+
+
+
 recuperarTema();

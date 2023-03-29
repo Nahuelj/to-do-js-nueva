@@ -29,6 +29,7 @@
 
 .contenedor-principal{
     width: fit-content;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,6 +61,7 @@
 
 .tarea{
     width: fit-content;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,6 +72,11 @@
     gap: .5rem;
 
     .texto{
+        max-width: 300px !important;
+        white-space: normal; /* permite el salto de línea automático */
+        overflow-wrap: break-word; /* corta palabras largas si no caben en una línea */
+        word-wrap: break-word; /* corta palabras largas si no caben en una línea */
+        overflow: hidden; /* oculta cualquier contenido que desborde */
         font-size: 1.1rem;
         background-color: rgba(0, 0, 0, 0.653);
         padding: .3rem .5rem;
@@ -174,7 +181,7 @@
     border-radius: 35px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-weight: bold;
     color: rgb(255, 255, 255);
     margin-bottom: 0;
